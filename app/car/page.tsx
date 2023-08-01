@@ -1,10 +1,14 @@
 import { getCars } from "@/app/lib/cars";
 import { CarProps } from "@/types";
 import CarsGrid from "@/components/cars/CarsGrid";
+import { Suspense } from "react";
+
+function Cars() {
+  const cars: CarProps[] = getCars();
+  return <CarsGrid cars={cars} />;
+}
 
 const CarsPage = () => {
-  const cars: CarProps[] = getCars();
-
   return (
     <>
       <div className=''>
@@ -21,7 +25,13 @@ const CarsPage = () => {
             dolores recusandae eveniet omnis expedita.
           </p>
         </div>
-        <CarsGrid cars={cars} />
+        <Suspense
+          fallback={
+            <p className='text-4xl text-center text-red-200'>Loading ...</p>
+          }
+        >
+          <Cars />
+        </Suspense>
       </div>
     </>
   );
