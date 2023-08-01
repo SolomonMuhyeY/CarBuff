@@ -1,10 +1,8 @@
 import React from "react";
 import Car from "./Car";
-import { getCars } from "@/app/lib/cars";
 import { CarProps } from "@/types";
 
-const CarsGrid = () => {
-  const cars: CarProps[] = getCars();
+const CarsGrid = ({ cars }: { cars: CarProps[] }) => {
   return (
     <div>
       {cars.map((car) => {
