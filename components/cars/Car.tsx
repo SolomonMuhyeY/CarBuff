@@ -18,10 +18,6 @@ const Car = ({ car }: { car: CarProps }) => {
           <div className='uppercase tracking-wide text-sm text-indigo-500 font-semibold'>
             {car.carName}
           </div>
-          <p className='block mt-1 text-lg leading-tight font-medium text-black hover:underline'>
-            {car.review}
-          </p>
-          <p className='mt-2 text-gray-500'>{car.review}</p>
           <div className='mt-4'>
             <p className='text-sm font-medium text-gray-900'>{car.creator}</p>
             <p className='text-sm text-gray-600'>{car.creator_email}</p>
