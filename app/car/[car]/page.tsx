@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getCar } from "@/app/lib/cars";
+import { notFound } from "next/navigation";
 
 const Page = ({
   params,
@@ -11,8 +12,7 @@ const Page = ({
   // Ensure params.car is valid before calling getCar
   const car = params.car ? getCar(params.car) : null;
 
-  console.log(params.car);
-  // console.log(car);
+  if (!car) notFound();
 
   return (
     <div className='bg-gray-100 min-h-screen flex flex-col justify-center items-center py-12 px-4 sm:px-6 lg:px-8'>
@@ -28,7 +28,6 @@ const Page = ({
                   src={car.image}
                   alt={car.carName}
                   layout='fill'
-                  objectFit='cover'
                   className='rounded-lg'
                 />
               </div>
@@ -45,7 +44,7 @@ const Page = ({
               {car ? car.creator_email : "No email provided"}
             </p>
             <a
-              className='text-sm text-gray-500'
+              className='inline-block text-sm text-gray-500 px-6 py-2 border-2 border-lime-400 my-2 rounded-2xl'
               href={`mailto:${car.creator_email}`}
             >
               {car.creator} 📧
