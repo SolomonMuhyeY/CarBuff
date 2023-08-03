@@ -21,6 +21,12 @@ const Car = ({ car }: { car: CarProps }) => {
           <div className='mt-4'>
             <p className='text-sm font-medium text-gray-900'>{car.creator}</p>
             <p className='text-sm text-gray-600'>{car.creator_email}</p>
+            <a
+              href={`car/${car.slug}`}
+              className='inline-block px-6 py-2 my-4 rounded-lg bg-gradient-to-r from-blue-500 to-teal-400 text-white font-semibold shadow-md hover:from-blue-600 hover:to-teal-500 focus:outline-none focus:ring-2 focus:ring-blue-300'
+            >
+              View Details
+            </a>
           </div>
         </div>
       </div>
