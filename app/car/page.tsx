@@ -1,10 +1,10 @@
 import { getCars } from "@/app/lib/cars";
-import { CarProps } from "@/types";
+import { Car } from "@/types";
 import CarsGrid from "@/components/cars/CarsGrid";
 import { Suspense } from "react";
 
-function Cars() {
-  const cars: CarProps[] = getCars();
+async function Cars() {
+  const cars: Car[] = (await getCars()) as Car[];
   return <CarsGrid cars={cars} />;
 }
 
