@@ -1,7 +1,6 @@
-"use client";
-
 import { shareCarPost } from "@/app/lib/carshare";
-import FileUploader from "@/components/cars/FileUploader";
+import CarSubmitButton from "@/components/cars/CarSubmitButton";
+// import FileUploader from "@/components/cars/FileUploader";
 
 const ShareCarPost = () => {
   return (
@@ -57,7 +56,22 @@ const ShareCarPost = () => {
           required
         />
       </div>
-      <FileUploader label='Your Image' name='image' />
+      <div className='mb-4'>
+        <label
+          htmlFor='image'
+          className='block  text-gray-700 font-medium mb-2 capitalize'
+        >
+          Upload Image
+        </label>
+        <input
+          type='file'
+          id='image'
+          name='image'
+          className='w-full bg-gray-200 text-gray-900 p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500'
+          required
+        />
+      </div>
+      {/* <FileUploader name='image' /> */}
       <div className='mb-4'>
         <label
           htmlFor='review'
@@ -71,12 +85,7 @@ const ShareCarPost = () => {
           className='w-full bg-gray-200 text-gray-900 p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500'
         />
       </div>
-      <button
-        type='submit'
-        className='w-full px-6 py-2 mt-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300'
-      >
-        Submit
-      </button>
+      <CarSubmitButton />
     </form>
   );
 };
