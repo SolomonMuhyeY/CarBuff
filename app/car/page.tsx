@@ -2,11 +2,16 @@ import { getCars } from "@/app/lib/cars";
 import { Car } from "@/types";
 import CarsGrid from "@/components/cars/CarsGrid";
 import { Suspense } from "react";
+import { Metadata } from "next";
 
 async function Cars() {
   const cars: Car[] = (await getCars()) as Car[];
   return <CarsGrid cars={cars} />;
 }
+export const metadata: Metadata = {
+  title: "All Cars",
+  description: "a list of cars",
+};
 
 const CarsPage = () => {
   return (
