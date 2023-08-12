@@ -1,4 +1,4 @@
-import { CarProps } from "@/types";
+import { Car as CarProps } from "@/types";
 import Image from "next/image";
 
 const Car = ({ car }: { car: CarProps }) => {
@@ -7,7 +7,7 @@ const Car = ({ car }: { car: CarProps }) => {
       <div className='md:flex'>
         <div className='md:flex-shrink-0'>
           <Image
-            src={car.image}
+            src={car.imagePath}
             alt={car.carName}
             className='h-48 w-full object-cover md:h-full md:w-48'
             width={192}
