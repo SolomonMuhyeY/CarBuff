@@ -1,6 +1,6 @@
 import React from "react";
 import Car from "./Car";
-import { CarProps } from "@/types";
+import { Car as CarProps } from "@/types";
 
 const CarsGrid = ({ cars }: { cars: CarProps[] }) => {
   return (
