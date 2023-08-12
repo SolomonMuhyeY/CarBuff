@@ -4,6 +4,14 @@ import { getCar } from "@/app/lib/cars";
 import { notFound } from "next/navigation";
 import { CarProps, Car } from "@/types";
 
+export async function generateMetadata({ params }: { params: CarProps }) {
+  const car: Car | null = params.car ? (getCar(params.car) as Car) : null;
+  if (!car) notFound();
+  return {
+    title: car?.carName,
+    description: `About ${car?.carName}`,
+  };
+}
 const Page = ({ params }: { params: CarProps }): JSX.Element => {
   const car: Car | null = params.car ? (getCar(params.car) as Car) : null;
 
@@ -17,11 +25,12 @@ const Page = ({ params }: { params: CarProps }): JSX.Element => {
             {car.carName}
           </h1>
           <div className='flex items-center mx-6 mb-4'>
-            <div className='relative w-96 h-96'>
+            <div className='relative w-full h-full'>
               <Image
                 src={car.imagePath}
                 alt={car.carName}
-                layout='fill'
+                width={600}
+                height={600}
                 className='rounded-lg'
               />
             </div>
