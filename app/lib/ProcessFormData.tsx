@@ -8,14 +8,17 @@ export function processFormData(formData: FormData): Car {
   const image = formData.get("image") as File;
   const extension = image.name.split(".").pop() ?? "";
   const imagePath = `/assets/${slug}.${extension}`;
+  const review = formData.get("review") as string;
+  const creator = formData.get("creator") as string;
+  const creator_email = formData.get("creator_email") as string;
 
   return {
     carName,
-    review: formData.get("review") as string,
+    review,
     image,
     imagePath,
-    creator: formData.get("creator") as string,
-    creator_email: formData.get("creator_email") as string,
+    creator,
+    creator_email,
     slug,
   };
 }
